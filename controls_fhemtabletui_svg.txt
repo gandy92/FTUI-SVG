@@ -1,0 +1,6 @@
+DIR www/tablet_eval
+DIR www/tablet_eval/js
+UPD 2016-07-09_21:57:41 3592 ./www/tablet_eval/js/widget_svg_style.js
+UPD 2016-07-09_21:57:41 1637 ./www/tablet_eval/js/widget_svg_text.js
+UPD 2016-07-09_21:57:41 11112 ./www/tablet_eval/js/widget_svg.js
+UPD 2016-07-09_22:00:05 8128 ./www/tablet_eval/index-svg.html

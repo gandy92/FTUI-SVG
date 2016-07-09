@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+     /* FHEM tablet ui */
+     /*
+     * UI builder framework for FHEM
+     *
+     * Version: 2.2.2
+     * URL: https://github.com/knowthelist/fhem-tablet-ui
+     *
+     * Copyright (c) 2015-2016 Mario Stephan <mstephan@shared-files.de>
+     * Under MIT License (http://www.opensource.org/licenses/mit-license.php)
+     *
+     * !!!! Evaluation version - run only in a staging enviroment !!!!
+     *
+     * - create a new folder named 'tablet_eval' in /<fhem-path>/www
+     * - copy all files incl. sub folders into /<fhem-path>/www/tablet_eval
+     * - add 'define TABLETUIEVAL HTTPSRV ftui_eval ./www/tablet_eval Tablet-EVAL' in fhem.cfg
+     * - Tadaaa! A new fhem ui in http://<fhem-url>:8083/fhem/tablet_eval/
+     */
+    -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="widget_base_width" content="73">
+    <meta name="widget_base_height" content="75">
+    <meta name="widget_margin" content="3">
+    <meta name="widget_min_cols" content="16">   <!-- Gridster tiles: 16x8 -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="weather_image_path" content="images/weather" />
+    <meta name="gridster_disable" content="0">
+    <meta name="longpoll" content="1">
+    <meta name="debug" content="1">
+    <meta http-equiv="Cache-Control" content="no-store" />
+
+    <link rel="stylesheet" href="lib/jquery.gridster.min.css" />
+    <link rel="stylesheet" href="css/fhem-tablet-ui.css" />
+    <link rel="stylesheet" href="lib/font-awesome.min.css" />
+    <link rel="stylesheet" href="lib/jquery.toast.min.css" />
+
+    <!-- define your personal style here, it wont be overwritten  -->
+    <!-- link rel="stylesheet" href="css/fhem-green-ui.css" / -->
+    <link rel="stylesheet" href="css/fhem-tablet-ui-user.css" />
+    <link rel="stylesheet" href="lib/openautomation.css" />
+    <link rel="stylesheet" href="lib/fhemSVG.css" />
+
+    <script src="../pgm2/jquery.min.js"></script>
+    <script src="lib/jquery.toast.min.js"></script>
+    <script src="lib/jquery.gridster.min.js"></script>
+    <script src="http://snapsvg.io/assets/js/snap.svg-min.js"></script>
+    <script src="js/fhem-tablet-ui.js" defer></script>
+    <script src="js/widget_svg.js"></script>
+    <script src="js/widget_svg_style.js"></script>
+    <script src="js/widget_svg_text.js"></script>
+    <link rel="stylesheet" href="css/fhem-tablet-ui-user.css" />
+
+
+    <!-- Remove this line to enable for usage with WebViewControl
+    <script defer>var wvcDevices = {'12345': 'Tablet'}; var wvcUserCssFile="webviewcontrol.css"</script>
+    <script src="../pgm2/cordova-2.3.0.js" defer></script>
+    <script src="../pgm2/webviewcontrol.js" defer></script>
+    <!-- End for WebViewControl -->
+
+    <title>FHEM @ hal</title>
+</head>
+<body>
+    <div class="gridster">
+        <ul>
+            <li data-row="6" data-col="2" data-sizex="3" data-sizey="3" class="halbTransparent">
+                <header>test</header>
+                <div data-type="svg" data-src="fs-ind.svg" data-width="210" class="col-1-1">
+                    <div data-type="svg_style" data-object="path3776" data-device="test01" data-states='["closed","tilted","open"]' data-styles='["stroke:blue","stroke:yellow","stroke:red"]'></div>
+                    <div data-type="svg_style" data-object="path3778" data-device="test02" data-states='["closed","tilted","open"]' data-styles='["stroke:blue","stroke:yellow","stroke:red"]'></div>
+                    <div data-type="svg_style" data-object="path3780" data-device="test02" data-states='["closed","tilted","open"]' data-styles='["stroke:blue","stroke:yellow","@path3776"]'></div>
+                    <div data-type="svg_style" data-object="path11800" data-device="test03" data-states='["-0.1","1.1"]' data-styles='["@path11616","@path11768"]' class="interpolate"></div>
+                    <div data-type="svg_text"  data-object="tspan4534" data-device="test02"></div>
+                    <div data-type="svg_text"  data-object="tspan5072" data-device="test02"></div>
+                    <div data-type="svg_text"  data-object="tspan4546" data-device="test02" data-get="state" data-substitution="toDate().hhmmss()" class="timestamp"></div>
+                </div>
+            </li>
+            
+            <li data-row="9" data-col="1" data-sizex="16" data-sizey="1" class="halbTransparent">
+                <div data-type="clock" data-format="H:i:s" class="cell bigger col-1-15 left"></div>
+                <div data-type="clock" data-format="d.m.y" class="cell bigger col-1-15 right"></div>
+                                
+                <div data-type="symbol" data-device="fsmWaschMaschine" data-get="status" class="bigger col-1-15"
+                     data-states='["OFF","TIMED_DELAY","ACTIVE","FINISHED"]'
+                     data-icons='["oa-scene_washing_machine","oa-scene_washing_machine","oa-scene_washing_machine","oa-scene_washing_machine blink"]' 
+                     data-colors='["#606060","#6060F0","#CC7A00","#FF0000"]'></div>
+                
+                <div data-type="symbol" data-device="fsmGeschirrSpueler" data-get="status" class="bigger col-1-15"
+                     data-states='["OFF","TIMED_DELAY","ACTIVE","FINISHED"]'
+                     data-icons='["oa-scene_dishwasher","oa-scene_dishwasher","oa-scene_dishwasher","oa-scene_dishwasher blink"]' 
+                     data-colors='["#606060","#6060F0","#CC7A00","#FF0000"]'></div>
+                
+                <div data-type="symbol" data-device="fsmWaermeKabine" data-get="status" class="bigger col-1-15"
+                     data-states='["OFF","ACTIVE","FINISHED"]'
+                     data-icons='["oa-scene_sauna","oa-scene_sauna","oa-scene_sauna blink"]' 
+                     data-colors='["#606060","#CC7A00","#FF0000"]'></div>
+                
+                <div data-type="symbol" data-device="Crosstrainer" data-get="state" class="bigger col-1-15"
+                     data-states='["off","ready","active","standby"]'
+                     data-icons='["oa-scene_fitness","oa-scene_fitness","oa-scene_fitness","oa-scene_fitness blink"]' 
+                     data-colors='["#606060","#6060F0","#CC7A00","#FF0000"]'></div>
+                
+                <div data-type="symbol" data-device="Epson" data-get="power" class="bigger col-1-15"
+                     data-states='["off","on","standby"]'
+                     data-icons='["oa-scene_cinema","oa-scene_cinema","oa-scene_cinema blink"]' 
+                     data-colors='["#606060","#CC7A00","#FF0000"]'></div>
+                
+                <div data-type="symbol" data-device="HifiWohnzimmer" data-get="state" class="bigger col-1-15"
+                     data-states='["off","on"]'
+                     data-icons='["oa-audio_volume_mute","oa-audio_audio"]' 
+                     data-colors='["#606060","#CC7A00"]'></div>
+                
+                <div data-type="svg" data-src="svg/cooking.svg" data-scale="1" class="bigger col-1-15">
+                    <!--
+                    <div data-type="svg_style" data-object="haube"        data-device="Dunstabzug.Fettfilter" data-states='["closed","tilted","open"]' data-styles='["stroke:blue","stroke:yellow","stroke:red"]'></div>
+                    <div data-type="svg_style" data-object="platte"       data-device="test02" data-states='["closed","tilted","open"]' data-styles='["stroke:blue","stroke:yellow","stroke:red"]'></div>
+                    -->
+                    <div data-type="svg_style" data-object="g3774" data-device="test01" data-get="service_required" data-states='["no","yes"]' data-styles='["opacity:0","opacity:1"]'></div>
+                    <div data-type="svg_style" data-object="g3767" data-device="test02" data-get="service_required" data-states='["no","yes"]' data-styles='["opacity:0","opacity:1"]'></div>
+                </div>
+                <div class="bigger col-1-15">
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</body>
+</html>
