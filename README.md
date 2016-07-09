@@ -2,6 +2,10 @@
 
 Extension for FHEM-Tablet UI v2.2 to use SVG images as widget elements.
 
+## Install
+* Make sure to have a working installation of FTUI v2.2 or above
+* use 'update all https://raw.githubusercontent.com/gandy92/FTUI-SVG/master/controls_fhemtabletui_svg.txt' on the FHEM commandline (or input field of FHEMWEB)
+
 ## Documentation
 
 ### Widget types
